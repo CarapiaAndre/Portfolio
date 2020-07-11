@@ -35,9 +35,16 @@ const theme = createMuiTheme({
         color: '#000000'
       }
     },
-    MuiMenu: {
+    MuiDrawer: {
       paper: {
-        top: '0'
+        height: '200px',
+        width: '200px',
+        borderRadius: '0 0 0 300px'
+      }
+    },
+    MuiListItem: {
+      root: {
+        textAlign: 'center'
       }
     }
   },

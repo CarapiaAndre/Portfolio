@@ -1,83 +1,87 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
 import {
     Grid,
     AppBar,
     Toolbar,
     Button,
     IconButton,
-    Menu,
-    MenuItem
+    List,
+    ListItem,
+    ListItemText,
+    SwipeableDrawer
 } from '@material-ui/core';
 import TranslateIcon from '@material-ui/icons/Translate';
 import MenuIcon from '@material-ui/icons/Menu';
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            anchorEl: null
-        };
-    }
-    handleClick = (e) => {
-        this.setState({
-            anchorEl: e.currentTarget
-        });
-    }
+const Header = (props) => {
+    const [state, setState] = useState({
+        right: false
+    });
 
-    handleClose = () => {
-        this.setState({
-            anchorEl: null
-        });
-    }
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
 
-    render() {
-        return (
-            <AppBar
-                position="static"
-                color="transparent"
-            >
-                <Toolbar>
-                    <Grid
-                        container
-                        direction="row"
-                        justify="space-between"
-                        alignItems="center"
+        setState({ ...state, [anchor]: open });
+    };
+
+    const list = (anchor) => (
+        <div
+            onClick={toggleDrawer(anchor, false)}
+            onKeyDown={toggleDrawer(anchor, false)}
+        >
+            <List>
+                {['Home', 'About', 'Contact'].map((text, index) => (
+                    <ListItem button key={text}>
+                        <ListItemText primary={text} />
+                    </ListItem>
+                ))}
+            </List>
+        </div>
+    );
+
+    return (
+        <AppBar
+            position="static"
+            color="transparent"
+        >
+            <Toolbar>
+                <Grid
+                    container
+                    direction="row"
+                    justify="space-between"
+                    alignItems="center"
+                >
+
+                    <Button
+                        onClick={props.setLanguage}
+                        startIcon={<TranslateIcon />}
+                        variant="contained"
+                        color="primary"
                     >
-
-                        <Button
-                            onClick={this.props.setLanguage}
-                            startIcon={<TranslateIcon />}
-                            variant="contained"
-                            color="primary"
-                        >
-                            <span>{this.props.texts.language}</span>
-                        </Button>
-                        <IconButton
-                            aria-label="menu"
-                            aria-controls="nav-menu"
-                            aria-haspopup="true"
-                            onClick={this.handleClick}
-                        >
-                            <MenuIcon fontSize="large" />
-                        </IconButton>
-                        <Menu
-
-                            id="nav-menu"
-                            anchorEl={this.state.anchorEl}
-                            keepMounted
-                            open={Boolean(this.state.anchorEl)}
-                            onClose={this.handleClose}
-                        >
-                            <MenuItem onClick={this.handleClose}><NavLink to="/">Home</NavLink></MenuItem>
-                            <MenuItem onClick={this.handleClose}><NavLink to="/about">About</NavLink></MenuItem>
-                            <MenuItem onClick={this.handleClose}><NavLink to="/contact">Contact</NavLink></MenuItem>
-                        </Menu>
-                    </Grid>
-                </Toolbar>
-            </AppBar>
-        );
-    }
+                        <span>{props.texts.language}</span>
+                    </Button>
+                    <IconButton
+                        aria-label="menu"
+                        aria-controls="nav-menu"
+                        aria-haspopup="true"
+                        onClick={toggleDrawer('right', true)}
+                    >
+                        <MenuIcon fontSize="large" />
+                    </IconButton>
+                    <SwipeableDrawer
+                        anchor={'right'}
+                        open={state['right']}
+                        onClose={toggleDrawer('right', false)}
+                        onOpen={toggleDrawer('right', true)}
+                    >
+                        {list('right')}
+                    </SwipeableDrawer>
+                </Grid>
+            </Toolbar>
+        </AppBar>
+    );
 }
 
 export default Header;
