@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.js": "/portfolio/static/js/main.9dbd0e4e.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.9dbd0e4e.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.209c2d7e.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.209c2d7e.js.map",
+    "static/css/2.a2eecc3f.chunk.css": "/portfolio/static/css/2.a2eecc3f.chunk.css",
+    "static/js/2.6a351deb.chunk.js": "/portfolio/static/js/2.6a351deb.chunk.js",
+    "static/js/2.6a351deb.chunk.js.map": "/portfolio/static/js/2.6a351deb.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "precache-manifest.84ccd2a511f8919c3793dd2f2289a1aa.js": "/portfolio/precache-manifest.84ccd2a511f8919c3793dd2f2289a1aa.js",
+    "service-worker.js": "/portfolio/service-worker.js",
+    "static/css/2.a2eecc3f.chunk.css.map": "/portfolio/static/css/2.a2eecc3f.chunk.css.map",
+    "static/js/2.6a351deb.chunk.js.LICENSE.txt": "/portfolio/static/js/2.6a351deb.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/portfolio/static/media/montserrat-latin-900-normal.58cd7897.woff2",
+    "static/media/responsiveDevices.svg": "/portfolio/static/media/responsiveDevices.3ba6cb62.svg",
+    "static/media/triangles-bg.svg": "/portfolio/static/media/triangles-bg.d516f71c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.209c2d7e.js",
+    "static/css/2.a2eecc3f.chunk.css",
+    "static/js/2.6a351deb.chunk.js",
+    "static/js/main.9dbd0e4e.chunk.js"
+  ]
+}
