@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
 
+import FullScreenContainer from './components/theme/FullScreenContainer';
 import Header from './components/Header';
+import ParticlesBackground from './components/theme/ParticlesBackground';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -31,29 +33,23 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Grid container alignItems="center">
-          <Grid item xs={12}>
-            <Header texts={this.state.language.dictionary.navBar} setLanguage={this.setLanguage} />
-          </Grid>
-          <Grid item xs={12}>
-            <Route
-              exact
-              path="/"
-              render={(props) => <Home {...props} texts={this.state.language.dictionary.home} />}
-            />
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route
-              path="/contact"
-              component={Contact}
-            />
-            <Route
-              path="/footer"
-              component={Footer}
-            />
-          </Grid>
-        </Grid>
+        <Header texts={this.state.language.dictionary.navBar} setLanguage={this.setLanguage} />
+        <Route
+          exact
+          path="/"
+          render={(props) => <Home {...props} texts={this.state.language.dictionary.home} />}
+        />
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route
+          path="/contact"
+          component={Contact}
+        />
+        <Route
+          path="/footer"
+          component={Footer}
+        />
       </BrowserRouter>
     );
   }

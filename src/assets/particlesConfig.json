@@ -204,53 +204,6 @@
                 "y": 0
             }
         },
-        "shape": {
-            "options": {
-                "character": {
-                    "fill": true,
-                    "close": true,
-                    "font": "Verdana",
-                    "style": "",
-                    "value": "*",
-                    "weight": "400"
-                },
-                "char": {
-                    "fill": true,
-                    "close": true,
-                    "font": "Verdana",
-                    "style": "",
-                    "value": "*",
-                    "weight": "400"
-                },
-                "image": {
-                    "fill": true,
-                    "close": true,
-                    "height": 100,
-                    "replaceColor": false,
-                    "src": "https://cdn.matteobruni.it/images/particles/github.svg",
-                    "width": 100
-                },
-                "images": {
-                    "fill": true,
-                    "close": true,
-                    "height": 100,
-                    "replaceColor": false,
-                    "src": "https://cdn.matteobruni.it/images/particles/github.svg",
-                    "width": 100
-                },
-                "polygon": {
-                    "fill": true,
-                    "close": true,
-                    "sides": 5
-                },
-                "star": {
-                    "fill": true,
-                    "close": true,
-                    "sides": 5
-                }
-            },
-            "type": "circle"
-        },
         "size": {
             "animation": {
                 "destroy": "none",
@@ -265,13 +218,6 @@
                 "minimumValue": 1
             },
             "value": 30
-        },
-        "stroke": {
-            "color": {
-                "value": "#000000"
-            },
-            "width": 0,
-            "opacity": 1
         },
         "twinkle": {
             "lines": {

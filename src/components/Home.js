@@ -6,41 +6,47 @@ import ParticlesBackground from './theme/ParticlesBackground';
 import HomeImage from './theme/HomeImage';
 
 const styles = makeStyles({
-    gridImage: {
-        paddingTop: '5%'
+    aboveBackground: {
+        width: '100%',
+        position: 'fixed',
+        zIndex: 11,
     },
-    title: {
-        fontSize: '5rem',
-        paddingBottom: '1rem'
+    textAlign: {
+        textAlign: 'center'
     }
+    
 });
 
 const Home = (props) => {
     const classes = styles();
     const { title, subTitle } = props.texts;
-    
+
     return (
-        <ParticlesBackground>
-            <Container maxWidth="lg">
-                <Grid
-                    container
-                    direction="column"
-                    justify="center"
-                    alignItems="center"
-                    className={classes.gridImage}
-                >
-                    <Grid item>
-                        <HomeImage />
+        <React.Fragment>
+            <div className={classes.aboveBackground}>
+                <Container maxWidth="lg">
+                    <Grid
+                        container
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                        className={classes.textAlign}
+                        textAlign="center"
+                    >
+                        <Grid item xs={12}>
+                            <HomeImage />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography variant="h1" className={classes.title}>{title}</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography variant="h5" component="h2">{subTitle}</Typography>
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <Typography variant="h1" className={classes.title}>{title}</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="subtitle1" color="secondary">{subTitle}</Typography>
-                    </Grid>
-                </Grid>
-            </Container>
-        </ParticlesBackground>
+                </Container>
+            </div>
+            <ParticlesBackground />
+        </React.Fragment>
     )
 };
 

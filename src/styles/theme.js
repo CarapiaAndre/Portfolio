@@ -1,17 +1,20 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 import { gotu, montserrat } from '../assets/fonts';
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   typography: {
-    fontFamily: 'Gotu, Montserrat, Arial',
+    fontFamily: [
+      'Gotu',
+      'Montserrat',
+      'Roboto',
+      'Arial']
+    .join(','),
     h1: {
-      fontFamily: 'Gotu',
-      fontSize: '3rem'
+      fontFamily: 'Gotu'
     },
-    subtitle1: {
-      fontFamily: 'Montserrat',
-      fontSize: '1.5rem'
+    h5: {
+      fontFamily: 'Montserrat'
     },
     button: {
       fontFamily: 'Montserrat',
@@ -22,7 +25,20 @@ const theme = createMuiTheme({
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '@font-face': [[gotu], [montserrat]]
+        '@font-face': [[gotu], [montserrat]],
+        html: {
+          height: '100%',
+          width: '100%'
+        },
+        body: {
+          height: '100%',
+          width: '100%'
+        }
+      }
+    },
+    MuiAppBar: {
+      root: {
+        height: '65px'
       }
     },
     MuiButton: {
@@ -63,5 +79,7 @@ const theme = createMuiTheme({
     }
   }
 });
+
+theme = responsiveFontSizes(theme);
 
 export default theme;
