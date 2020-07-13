@@ -7,14 +7,15 @@ import HomeImage from './theme/HomeImage';
 
 const styles = makeStyles({
     aboveBackground: {
+        marginTop: '24px',
         width: '100%',
-        position: 'fixed',
+        position: 'absolute',
         zIndex: 11,
     },
     textAlign: {
         textAlign: 'center'
     }
-    
+
 });
 
 const Home = (props) => {
@@ -22,7 +23,7 @@ const Home = (props) => {
     const { title, subTitle } = props.texts;
 
     return (
-        <React.Fragment>
+        <div className={"main-section"} id="home">
             <div className={classes.aboveBackground}>
                 <Container maxWidth="lg">
                     <Grid
@@ -31,13 +32,12 @@ const Home = (props) => {
                         justify="center"
                         alignItems="center"
                         className={classes.textAlign}
-                        textAlign="center"
                     >
                         <Grid item xs={12}>
                             <HomeImage />
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography variant="h1" className={classes.title}>{title}</Typography>
+                            <Typography variant="h1">{title}</Typography>
                         </Grid>
                         <Grid item xs={12}>
                             <Typography variant="h5" component="h2">{subTitle}</Typography>
@@ -46,7 +46,7 @@ const Home = (props) => {
                 </Container>
             </div>
             <ParticlesBackground />
-        </React.Fragment>
+        </div>
     )
 };
 

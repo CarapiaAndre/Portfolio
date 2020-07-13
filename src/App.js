@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom'
-
-import FullScreenContainer from './components/theme/FullScreenContainer';
-import Header from './components/Header';
-import ParticlesBackground from './components/theme/ParticlesBackground';
+import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-
 import DictionaryFallBack from './translate/en';
-import translate from './components/Translate'
-import { Grid } from '@material-ui/core';
+import translate from './components/Translate';
+import './styles/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -28,31 +23,20 @@ class App extends Component {
     this.setState({
       language: newLanguage
     })
-
   }
   render() {
     return (
-      <BrowserRouter>
-        <Header texts={this.state.language.dictionary.navBar} setLanguage={this.setLanguage} />
-        <Route
-          exact
-          path="/"
-          render={(props) => <Home {...props} texts={this.state.language.dictionary.home} />}
+      <React.Fragment>
+        <Navbar
+          texts={this.state.language.dictionary.navBar}
+          setLanguage={this.setLanguage}
         />
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route
-          path="/contact"
-          component={Contact}
-        />
-        <Route
-          path="/footer"
-          component={Footer}
-        />
-      </BrowserRouter>
+        <Home texts={this.state.language.dictionary.home}/>
+        <About className={'about-section'} />
+        <Contact className={'contact-section'} />
+        <Footer />
+      </React.Fragment>
     );
   }
-}
-
+};
 export default App;

@@ -10,10 +10,11 @@ import {
     ListItemText,
     SwipeableDrawer
 } from '@material-ui/core';
+import { Link } from 'react-scroll';
 import TranslateIcon from '@material-ui/icons/Translate';
 import MenuIcon from '@material-ui/icons/Menu';
 
-const Header = (props) => {
+const Navbar = (props) => {
     const [state, setState] = useState({
         right: false
     });
@@ -32,20 +33,58 @@ const Header = (props) => {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {['Home', 'About', 'Contact'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <ListItem button key={"home"}>
+                    <ListItemText primary={
+                        <Link
+                            activeClass="active"
+                            to="home"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            onClick={toggleDrawer(anchor, false)}
+                        >
+                            Home
+                        </Link>
+                    } />
+                </ListItem>
+                <ListItem button key={"about"}>
+                    <ListItemText primary={
+                        <Link
+                            activeClass="active"
+                            to="about"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            onClick={toggleDrawer(anchor, false)}
+                        >
+                            About
+                        </Link>
+                    } />
+                </ListItem>
+                <ListItem button key={"contact"}>
+                    <ListItemText primary={
+                        <Link
+                            activeClass="active"
+                            to="contact"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            onClick={toggleDrawer(anchor, false)}
+                        >
+                            Contact
+                        </Link>
+                    } />
+                </ListItem>
+
             </List>
         </div>
     );
 
     return (
-        <AppBar
-            position="static"
-            color="transparent"
-        >
+        <AppBar position="sticky">
             <Toolbar>
                 <Grid
                     container
@@ -53,12 +92,10 @@ const Header = (props) => {
                     justify="space-between"
                     alignItems="center"
                 >
-
                     <Button
                         onClick={props.setLanguage}
                         startIcon={<TranslateIcon />}
                         variant="contained"
-                        color="primary"
                     >
                         <span>{props.texts.language}</span>
                     </Button>
@@ -81,7 +118,7 @@ const Header = (props) => {
                 </Grid>
             </Toolbar>
         </AppBar>
-    );
-}
+    )
+};
 
-export default Header;
+export default Navbar;

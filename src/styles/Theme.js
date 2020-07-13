@@ -2,6 +2,9 @@ import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 import { gotu, montserrat } from '../assets/fonts';
 
+const primaryHex = "#1de8b5";
+const secondaryHex = "#515151";
+
 let theme = createMuiTheme({
   typography: {
     fontFamily: [
@@ -18,22 +21,31 @@ let theme = createMuiTheme({
     },
     button: {
       fontFamily: 'Montserrat',
-      fontSize: '1rem',
-      textTransform: 'uppercase'
+    }
+  },
+  palette: {
+    primary: {
+      main: primaryHex
+    },
+    secondary: {
+      main: secondaryHex
+    }
+  },
+  props: {
+    MuiAppBar: {
+      color: "secondary"
+    },
+    MuiButton: {
+      color: "primary"
+    },
+    MuiIconButton: {
+      "color": "primary"
     }
   },
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '@font-face': [[gotu], [montserrat]],
-        html: {
-          height: '100%',
-          width: '100%'
-        },
-        body: {
-          height: '100%',
-          width: '100%'
-        }
+        '@font-face': [[gotu], [montserrat]]
       }
     },
     MuiAppBar: {
@@ -46,9 +58,9 @@ let theme = createMuiTheme({
         borderRadius: '50px'
       }
     },
-    MuiIconButton: {
+    MuiPaper: {
       root: {
-        color: '#000000'
+        "backgroundColor": primaryHex
       }
     },
     MuiDrawer: {
@@ -63,23 +75,17 @@ let theme = createMuiTheme({
         textAlign: 'center'
       }
     }
-  },
-  palette: {
-    primary: {
-      light: '#6dffe7',
-      main: '#1de8b5',
-      dark: '#00b585',
-      contrastText: '#000000'
-    },
-    secondary: {
-      light: '#7d7d7d',
-      main: '#515151',
-      dark: '#292929',
-      contrastText: '#ffffff'
-    }
   }
 });
 
 theme = responsiveFontSizes(theme);
+
+theme.typography.h1 = {
+  ...theme.typography.h1,
+  [theme.breakpoints.down('sm')] : {
+    fontSize: '2.5rem'
+  }
+}
+
 
 export default theme;

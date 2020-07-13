@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 class About extends Component {
     render() {
         return (
-            <div>
+            <div className={"about-section"} id="about">
                 <Typography variant="h1">About</Typography>
                 <Typography variant="subtitle1">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</Typography>
             </div>
