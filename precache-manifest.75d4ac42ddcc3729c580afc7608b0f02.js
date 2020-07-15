@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b3b3fca1e00d434f822c263699e2de1a",
+    "revision": "54259f2eda19d332e2ace6a4752076f9",
     "url": "/portfolio/index.html"
   },
   {
-    "revision": "7a45153965d59df0fe79",
+    "revision": "df284fbf1c092ed133fa",
     "url": "/portfolio/static/css/2.a2eecc3f.chunk.css"
   },
   {
-    "revision": "7a45153965d59df0fe79",
-    "url": "/portfolio/static/js/2.6a351deb.chunk.js"
+    "revision": "df284fbf1c092ed133fa",
+    "url": "/portfolio/static/js/2.e460b70b.chunk.js"
   },
   {
     "revision": "68ba00d5eb083746d913686923a3d904",
-    "url": "/portfolio/static/js/2.6a351deb.chunk.js.LICENSE.txt"
+    "url": "/portfolio/static/js/2.e460b70b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cee641f9e9ae5848b873",
-    "url": "/portfolio/static/js/main.9dbd0e4e.chunk.js"
+    "revision": "5d9b74f72dc1fc429e4c",
+    "url": "/portfolio/static/js/main.fc846bc4.chunk.js"
   },
   {
     "revision": "7a6cc99bd8f08f9fa6ec",
@@ -176,8 +176,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/portfolio/static/media/montserrat-latin-900-normal.58cd7897.woff2"
   },
   {
-    "revision": "3ba6cb6211ba0a37b6a04d19e163ed80",
-    "url": "/portfolio/static/media/responsiveDevices.3ba6cb62.svg"
+    "revision": "d1f3f1c225e2a577ecabc4942a8c383f",
+    "url": "/portfolio/static/media/responsiveDevices.d1f3f1c2.svg"
   },
   {
     "revision": "d516f71c167724bbef56ed1f3d609ae8",
