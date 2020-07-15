@@ -9,12 +9,11 @@ import { makeStyles } from '@material-ui/core/styles';
 const ParticlesBackground = (props) => {
     const theme = useTheme();
     const upLgDevice = useMediaQuery(theme.breakpoints.up('lg'));
-    const headerHeight = 65;
 
     const styles = makeStyles({
         bgContainer: {
             position: 'relative',
-            height: 'calc(100% - ' + headerHeight + 'px)'
+            height: '100%'
         },
         background: {
             position: 'absolute',

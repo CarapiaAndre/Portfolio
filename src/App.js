@@ -6,7 +6,6 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DictionaryFallBack from './translate/en';
 import translate from './components/Translate';
-import './styles/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -27,12 +26,9 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar
-          texts={this.state.language.dictionary.navBar}
-          setLanguage={this.setLanguage}
-        />
+        <Navbar texts={this.state.language.dictionary.navBar} setLanguage={this.setLanguage} />
         <Home texts={this.state.language.dictionary.home}/>
-        <About className={'about-section'} />
+        <About texts={this.state.language.dictionary.about}/>
         <Contact className={'contact-section'} />
         <Footer />
       </React.Fragment>

@@ -16,7 +16,18 @@ let theme = createMuiTheme({
     h1: {
       fontFamily: 'Gotu'
     },
+    h3: {
+      fontFamily: 'Gotu',
+      textAlign: 'center',
+      margin: '24px 0'
+    },
     h5: {
+      fontFamily: 'Montserrat',
+      fontSize: '1.2rem',
+      fontWeight: 'bold',
+      marginTop: '16px'
+    },
+    body1: {
       fontFamily: 'Montserrat'
     },
     button: {
@@ -29,7 +40,12 @@ let theme = createMuiTheme({
     },
     secondary: {
       main: secondaryHex
-    }
+    },
+    text: {
+      primary: '#000',
+      secondary: '#fff'
+    },
+    
   },
   props: {
     MuiAppBar: {
@@ -58,21 +74,25 @@ let theme = createMuiTheme({
         borderRadius: '50px'
       }
     },
-    MuiPaper: {
-      root: {
-        "backgroundColor": primaryHex
-      }
-    },
     MuiDrawer: {
       paper: {
         height: '200px',
         width: '200px',
-        borderRadius: '0 0 0 300px'
+        borderRadius: '0 0 0 300px',
+        "backgroundColor": primaryHex
       }
     },
     MuiListItem: {
       root: {
-        textAlign: 'center'
+        textAlign: 'center',
+        paddingTop: '0',
+        paddingBottom: '0'
+      }
+    },
+    MuiPaper: {
+      root: {
+        backgroundColor: '#fff',
+        width: '100%'
       }
     }
   }
@@ -84,6 +104,13 @@ theme.typography.h1 = {
   ...theme.typography.h1,
   [theme.breakpoints.down('sm')] : {
     fontSize: '2.5rem'
+  }
+}
+
+theme.typography.h3 = {
+  ...theme.typography.h3,
+  [theme.breakpoints.down('sm')] : {
+    fontSize: '1.5rem'
   }
 }
 

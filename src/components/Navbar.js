@@ -88,34 +88,37 @@ const Navbar = (props) => {
             <Toolbar>
                 <Grid
                     container
-                    direction="row"
                     justify="space-between"
                     alignItems="center"
                 >
-                    <Button
-                        onClick={props.setLanguage}
-                        startIcon={<TranslateIcon />}
-                        variant="contained"
-                    >
-                        <span>{props.texts.language}</span>
-                    </Button>
-                    <IconButton
-                        aria-label="menu"
-                        aria-controls="nav-menu"
-                        aria-haspopup="true"
-                        onClick={toggleDrawer('right', true)}
-                    >
-                        <MenuIcon fontSize="large" />
-                    </IconButton>
-                    <SwipeableDrawer
-                        anchor={'right'}
-                        open={state['right']}
-                        onClose={toggleDrawer('right', false)}
-                        onOpen={toggleDrawer('right', true)}
-                    >
-                        {list('right')}
-                    </SwipeableDrawer>
+                    <Grid item>
+                        <Button
+                            onClick={props.setLanguage}
+                            startIcon={<TranslateIcon />}
+                            variant="contained"
+                        >
+                            <span>{props.texts.language}</span>
+                        </Button>
+                    </Grid>
+                    <Grid item>
+                        <IconButton
+                            aria-label="menu"
+                            aria-controls="nav-menu"
+                            aria-haspopup="true"
+                            onClick={toggleDrawer('right', true)}
+                        >
+                            <MenuIcon fontSize="large" />
+                        </IconButton>
+                    </Grid>
                 </Grid>
+                <SwipeableDrawer
+                    anchor={'right'}
+                    open={state['right']}
+                    onClose={toggleDrawer('right', false)}
+                    onOpen={toggleDrawer('right', true)}
+                >
+                    {list('right')}
+                </SwipeableDrawer>
             </Toolbar>
         </AppBar>
     )
