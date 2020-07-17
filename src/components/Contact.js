@@ -7,9 +7,10 @@ import connectorSVG from '../assets/img/connector.svg';
 import theme from '../styles/Theme';
 
 const syles = makeStyles({
-    aboutSection: {
+    contactSection: {
         backgroundColor: theme.palette.secondary.main,
-        textAlign: 'center'
+        textAlign: 'center',
+        minHeight: '800px'
     },
     extendedIcon: {
         marginRight: theme.spacing(1)
@@ -21,10 +22,10 @@ const Contact = (props) => {
     const texts = { ...props.texts };
 
     return (
-        <div className={classes.aboutSection} id="contact">
+        <div className={classes.contactSection} id="contact">
             <img width="100%" src={connectorSVG} alt="connector" />
             <Container maxWidth="lg">
-                <Grid container>
+                <Grid container spacing={10}>
                     <Grid item xs={12}>
                         <Typography variant="h1" color="textSecondary" >{texts.title}</Typography>
                         <Typography variant="subtitle1">{texts.description}</Typography>
