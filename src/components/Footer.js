@@ -18,6 +18,9 @@ const styles = makeStyles({
     icons: {
         width: '3rem',
         height: '3rem'
+    },
+    noPadding: {
+        padding: '0'
     }
 })
 
@@ -65,18 +68,18 @@ const Footer = (props) => {
                         </Link>
                     </Grid>
                     <Grid item xs={2}>
-                        <Link
-                            rel="noopener noreferrer"
-                            href="https://www.linkedin.com/in/andrecarapia/"
-                            target="_blank"
-                            component="a"
-                        >
-                            <LinkedInIcon className={classes.icons} color="primary" />
-                        </Link>
+                            <Link
+                                rel="noopener noreferrer"
+                                href="https://www.linkedin.com/in/andrecarapia/"
+                                target="_blank"
+                                component="a"
+                            >
+                                <LinkedInIcon className={classes.icons} color="primary" />
+                            </Link>
                     </Grid>
                     <Grid item xs={2}>
                         <Tooltip title="Click to copy: carapia.andre.en@gmail.com" aria-label="copy gmail">
-                            <IconButton aria-label="GMail" onClick={snackBarClick(true)}>
+                            <IconButton aria-label="GMail" onClick={snackBarClick(true)} className={classes.noPadding}>
                                 <GmailIcon className={classes.icons} color="primary" />
                             </IconButton>
                         </Tooltip>
