@@ -40,14 +40,13 @@ const ContactModal = (props) => {
                     <Paper elevation={4} className={classes.paper}>
                         <Grid container spacing={4}>
                             <Grid container item xs={12} justify="flex-end">
-                                <IconButton aria-label="cancel" color="secondary">
+                                <IconButton aria-label="cancel" color="secondary" onClick={() => props.showModal(false)}>
                                     <CloseIcon />
                                 </IconButton>
                             </Grid>
                             <Grid item xs={12} >
                                 <Typography variant="h4" className={classes.title}>{texts.title}</Typography>
                             </Grid>
-
                             <Grid
                                 component="form"
                                 container
@@ -56,10 +55,10 @@ const ContactModal = (props) => {
                                 className={classes.form}
                             >
                                 <Grid item md={6}>
-                                    <TextField id="nameInput" label="Name" />
+                                    <TextField id="nameInput" label={texts.name} />
                                 </Grid>
                                 <Grid item md={6}>
-                                    <TextField id="emailInput" label="Email" />
+                                    <TextField id="emailInput" label={texts.email} />
                                 </Grid>
                                 <Grid
                                     container
@@ -68,7 +67,7 @@ const ContactModal = (props) => {
                                     alignItems="center"
                                 >
                                     <Grid item md={10}>
-                                        <TextField id="messageInput" label="Message" multiline rows={4} />
+                                        <TextField id="messageInput" label={texts.message} multiline rows={4} />
                                     </Grid>
                                     <Grid item md={2} style={{ textAlign: "center" }}>
                                         <Button

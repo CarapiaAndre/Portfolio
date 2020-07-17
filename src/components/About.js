@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography, Grid, IconButton, List, ListItem, ListItemText } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PhonelinkIcon from '@material-ui/icons/Phonelink';
+import { Link } from 'react-scroll';
 import theme from '../styles/Theme';
 
 const styles = makeStyles({
@@ -29,7 +30,7 @@ const About = (props) => {
     const texts = { ...props.texts };
 
     const toolList = tools => {
-        if(tools.title && tools.list) {
+        if (tools.title && tools.list) {
             return (
                 <React.Fragment>
                     <Typography variant="h5" style={{ color: darkPrimaryColor }} >{tools.title}</Typography>
@@ -52,9 +53,16 @@ const About = (props) => {
             <Container maxWidth="lg">
                 <Grid container className={classes.center} spacing={4}>
                     <Grid item xs={12} >
-                        <IconButton aria-label="Expand More">
-                            <ExpandMoreIcon fontSize="large" />
-                        </IconButton>
+                        <Link
+                            to="about"
+                            spy={true}
+                            smooth={true}
+                            duration={500}
+                        >
+                            <IconButton aria-label="Expand More">
+                                <ExpandMoreIcon fontSize="large" />
+                            </IconButton>
+                        </Link>
                     </Grid>
                     <Grid container item xs={12} justify="center" >
                         <Typography variant="h3" color="textSecondary" >{texts.title}</Typography>
@@ -84,7 +92,7 @@ const About = (props) => {
 
                                     ))}
                                 </List>
-                                {toolList({title: knowledge.toolsTitle, list: knowledge.toolsList})}
+                                {toolList({ title: knowledge.toolsTitle, list: knowledge.toolsList })}
                             </Grid>
                         ))}
                     </Grid>

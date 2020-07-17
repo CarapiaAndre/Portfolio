@@ -2,6 +2,9 @@ export default {
     en: {
         navBar: {
             language: "English",
+            home: "Home",
+            about: "About",
+            contact: "Contact"
         },
         home: {
             title : "Full-Stack Developer",

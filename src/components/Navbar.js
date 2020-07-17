@@ -44,7 +44,7 @@ const Navbar = (props) => {
                             duration={500}
                             onClick={toggleDrawer(anchor, false)}
                         >
-                            Home
+                            {props.texts.home}
                         </Link>
                     } />
                 </ListItem>
@@ -59,7 +59,7 @@ const Navbar = (props) => {
                             duration={500}
                             onClick={toggleDrawer(anchor, false)}
                         >
-                            About
+                            {props.texts.about}
                         </Link>
                     } />
                 </ListItem>
@@ -74,7 +74,7 @@ const Navbar = (props) => {
                             duration={500}
                             onClick={toggleDrawer(anchor, false)}
                         >
-                            Contact
+                            {props.texts.contact}
                         </Link>
                     } />
                 </ListItem>

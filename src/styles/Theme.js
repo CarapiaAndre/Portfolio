@@ -80,9 +80,9 @@ let theme = createMuiTheme({
     },
     MuiDrawer: {
       paper: {
-        height: '200px',
-        width: '200px',
-        borderRadius: '0 0 0 300px',
+        height: '155px',
+        width: '155px',
+        borderRadius: '0 0 0 310px',
         backgroundColor: primaryHex
       }
     },

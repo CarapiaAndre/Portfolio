@@ -2,6 +2,9 @@ export default {
     pt: {
         navBar: {
             language: "Português",
+            home: "Início",
+            about: "Sobre",
+            contact: "Contato"
         },
         home: {
             title: "Desenvolvedor Full-Stack",
