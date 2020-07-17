@@ -12,7 +12,7 @@ let theme = createMuiTheme({
       'Montserrat',
       'Roboto',
       'Arial']
-    .join(','),
+      .join(','),
     h1: {
       fontFamily: 'Gotu'
     },
@@ -45,7 +45,7 @@ let theme = createMuiTheme({
       primary: '#000',
       secondary: '#fff'
     },
-    
+
   },
   props: {
     MuiAppBar: {
@@ -56,6 +56,10 @@ let theme = createMuiTheme({
     },
     MuiIconButton: {
       "color": "primary"
+    },
+    MuiTextField: {
+      fullWidth: true,
+      variant: "outlined"
     }
   },
   overrides: {
@@ -79,7 +83,7 @@ let theme = createMuiTheme({
         height: '200px',
         width: '200px',
         borderRadius: '0 0 0 300px',
-        "backgroundColor": primaryHex
+        backgroundColor: primaryHex
       }
     },
     MuiListItem: {
@@ -94,6 +98,21 @@ let theme = createMuiTheme({
         backgroundColor: '#fff',
         width: '100%'
       }
+    },
+    MuiOutlinedInput: {
+      root: {
+        '&:hover $notchedOutline': {
+          borderColor: primaryHex
+        }
+      }
+    },
+    MuiFormLabel: {
+      root: {
+        color: secondaryHex,
+        '&$focused': {
+          color: secondaryHex
+        }
+      }
     }
   }
 });
@@ -102,14 +121,14 @@ theme = responsiveFontSizes(theme);
 
 theme.typography.h1 = {
   ...theme.typography.h1,
-  [theme.breakpoints.down('sm')] : {
+  [theme.breakpoints.down('sm')]: {
     fontSize: '2.5rem'
   }
 }
 
 theme.typography.h3 = {
   ...theme.typography.h3,
-  [theme.breakpoints.down('sm')] : {
+  [theme.breakpoints.down('sm')]: {
     fontSize: '1.5rem'
   }
 }

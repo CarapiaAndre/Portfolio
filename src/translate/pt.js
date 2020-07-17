@@ -67,6 +67,18 @@ export default {
                     ],
                 }
             ]
+        },
+        contact: {
+            title: "Contato",
+            description: "Tem alguma pergunta ou deseja entrar em contato?",
+            button: "Entrar em contato",
+            form: {
+                title: 'Obrigado pelo interesse. Como posso te ajudar hoje?',
+                name: 'Nome',
+                email: 'Email',
+                message: 'Mensagem',
+                submit: 'Enviar'
+            }
         }
     }
 };

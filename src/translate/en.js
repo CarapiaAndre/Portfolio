@@ -67,6 +67,18 @@ export default {
                     ],
                 }
             ]
+        },
+        contact: {
+            title: "Contact",
+            description: "Have a question or want to contact me?",
+            button: "Say hello",
+            form: {
+                title: 'Thanks for the interest. How can I help you today?',
+                name: 'Name',
+                email: 'Email',
+                message: 'Message',
+                submit: 'Send'
+            }
         }
     }
 };
