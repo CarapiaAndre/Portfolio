@@ -46,10 +46,10 @@ const Footer = (props) => {
                 <Grid container spacing={2} justify="center" alignItems="center">
                     <Grid item xs={12} >
                         <LinkScroll
-                            to="home"
+                            to="about"
                             spy={true}
                             smooth={true}
-                            offset={-65}
+                            offset={0}
                             duration={500}
                         >
                             <IconButton aria-label="Expand Less">

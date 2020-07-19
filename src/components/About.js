@@ -9,7 +9,6 @@ import theme from '../styles/Theme';
 const styles = makeStyles({
     aboutSection: {
         background: `linear-gradient(to bottom, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.main} 70%, ${theme.palette.secondary.main} 70%, #ffffff 70%, #ffffff 100%)`,
-        paddingTop: theme.spacing(1)
     },
     center: {
         textAlign: 'center',

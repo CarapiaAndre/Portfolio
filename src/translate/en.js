@@ -2,9 +2,7 @@ export default {
     en: {
         navBar: {
             language: "English",
-            home: "Home",
-            about: "About",
-            contact: "Contact"
+            pageList: ["Home", "About", "Contact"]
         },
         home: {
             title : "Full-Stack Developer",

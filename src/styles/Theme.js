@@ -49,10 +49,11 @@ let theme = createMuiTheme({
   },
   props: {
     MuiAppBar: {
-      color: "secondary"
+      color: "transparent"
     },
     MuiButton: {
-      color: "primary"
+      color: "primary",
+      variant: "contained"
     },
     MuiIconButton: {
       "color": "primary"
@@ -71,11 +72,29 @@ let theme = createMuiTheme({
     MuiAppBar: {
       root: {
         height: '65px'
+      },
+      colorPrimary: {
+        backgroundColor: '#fff'
       }
     },
+
     MuiButton: {
       root: {
         borderRadius: '50px'
+      },
+      textPrimary: {
+        color: secondaryHex
+      },
+      textSecondary: {
+        color: primaryHex
+      },
+      containedSecondary: {
+        color: primaryHex
+      },
+      label: {
+          '&.active a': {
+            backgroundColor: '#fff'
+          }
       }
     },
     MuiDrawer: {

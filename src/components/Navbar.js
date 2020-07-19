@@ -5,120 +5,93 @@ import {
     Toolbar,
     Button,
     IconButton,
-    List,
-    ListItem,
-    ListItemText,
-    SwipeableDrawer
+    SwipeableDrawer,
+    useMediaQuery
 } from '@material-ui/core';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 import TranslateIcon from '@material-ui/icons/Translate';
 import MenuIcon from '@material-ui/icons/Menu';
+import theme from '../styles/Theme';
+import MobileListButton from './theme/MobileListButton';
 
 const Navbar = (props) => {
     const [state, setState] = useState({
-        right: false
+        drawerOpen: false,
+        activePage: 'home',
+        pages: ['home', 'about', 'contact']
     });
+    const largeDevice = useMediaQuery(theme.breakpoints.up('md'));
 
-    const toggleDrawer = (anchor, open) => (event) => {
+    const toggleDrawer = (open) => (event) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
-
-        setState({ ...state, [anchor]: open });
+        setState({ ...state, drawerOpen: open });
     };
 
-    const list = (anchor) => (
-        <div
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
-        >
-            <List>
-                <ListItem button key={"home"}>
-                    <ListItemText primary={
-                        <Link
-                            activeClass="active"
-                            to="home"
-                            spy={true}
-                            smooth={true}
-                            offset={-70}
-                            duration={500}
-                            onClick={toggleDrawer(anchor, false)}
-                        >
-                            {props.texts.home}
-                        </Link>
-                    } />
-                </ListItem>
-                <ListItem button key={"about"}>
-                    <ListItemText primary={
-                        <Link
-                            activeClass="active"
-                            to="about"
-                            spy={true}
-                            smooth={true}
-                            offset={-70}
-                            duration={500}
-                            onClick={toggleDrawer(anchor, false)}
-                        >
-                            {props.texts.about}
-                        </Link>
-                    } />
-                </ListItem>
-                <ListItem button key={"contact"}>
-                    <ListItemText primary={
-                        <Link
-                            activeClass="active"
-                            to="contact"
-                            spy={true}
-                            smooth={true}
-                            offset={-70}
-                            duration={500}
-                            onClick={toggleDrawer(anchor, false)}
-                        >
-                            {props.texts.contact}
-                        </Link>
-                    } />
-                </ListItem>
+    const setActivePage = (page = state.activePage) => {
+        setState({ ...state, activePage: page })
+    }
 
-            </List>
-        </div>
+    const navList = () => state.pages.map((page, i) =>
+        <Grid item key={page}>
+            <ScrollLink
+                to={page}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                onSetActive={() => setActivePage(page.toLowerCase())}
+            >
+                {largeDevice
+                    ? <Button variant={state.activePage === page ? "contained" : "text"}>{props.texts.pageList[i]}</Button>
+                    : <MobileListButton >{props.texts.pageList[i]}</MobileListButton>
+                }
+            </ScrollLink>
+        </Grid>
+
     );
 
     return (
-        <AppBar position="sticky">
+        <AppBar position="sticky" color={state.activePage !== "about" ? "primary" : "secondary"}>
             <Toolbar>
                 <Grid
                     container
-                    justify="space-between"
                     alignItems="center"
                 >
-                    <Grid item>
+                    <Grid item xs={6}>
                         <Button
                             onClick={props.setLanguage}
                             startIcon={<TranslateIcon />}
-                            variant="contained"
                         >
                             <span>{props.texts.language}</span>
                         </Button>
                     </Grid>
-                    <Grid item>
-                        <IconButton
-                            aria-label="menu"
-                            aria-controls="nav-menu"
-                            aria-haspopup="true"
-                            onClick={toggleDrawer('right', true)}
-                        >
-                            <MenuIcon fontSize="large" />
-                        </IconButton>
+                    <Grid item xs={6} container justify="flex-end">
+                        {
+                            largeDevice ?
+                                navList() :
+                                <React.Fragment>
+                                    <IconButton
+                                        aria-label="menu"
+                                        aria-controls="nav-menu"
+                                        aria-haspopup="true"
+                                        onClick={toggleDrawer(true)}
+                                    >
+                                        <MenuIcon color="secondary" fontSize="large" />
+                                    </IconButton>
+                                    <SwipeableDrawer
+                                        anchor={'right'}
+                                        open={state.drawerOpen}
+                                        onClose={toggleDrawer(false)}
+                                        onOpen={toggleDrawer(true)}
+                                    >
+                                        {navList()}
+                                    </SwipeableDrawer>
+                                </React.Fragment>
+                        }
                     </Grid>
                 </Grid>
-                <SwipeableDrawer
-                    anchor={'right'}
-                    open={state['right']}
-                    onClose={toggleDrawer('right', false)}
-                    onOpen={toggleDrawer('right', true)}
-                >
-                    {list('right')}
-                </SwipeableDrawer>
             </Toolbar>
         </AppBar>
     )
