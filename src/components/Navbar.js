@@ -6,13 +6,14 @@ import {
     Button,
     IconButton,
     SwipeableDrawer,
-    useMediaQuery
+    useMediaQuery,
+    ListItemText
 } from '@material-ui/core';
 import { Link as ScrollLink } from 'react-scroll';
 import TranslateIcon from '@material-ui/icons/Translate';
 import MenuIcon from '@material-ui/icons/Menu';
+import EmailIcon from '@material-ui/icons/Email';
 import theme from '../styles/Theme';
-import MobileListButton from './theme/MobileListButton';
 
 const Navbar = (props) => {
     const [state, setState] = useState({
@@ -45,7 +46,7 @@ const Navbar = (props) => {
             >
                 {largeDevice
                     ? <Button variant={state.activePage === page ? "contained" : "text"}>{props.texts.pageList[i]}</Button>
-                    : <MobileListButton >{props.texts.pageList[i]}</MobileListButton>
+                    : <ListItemText style={{ textAlign: 'center' }}>{props.texts.pageList[i]}</ListItemText>
                 }
             </ScrollLink>
         </Grid>
@@ -55,41 +56,53 @@ const Navbar = (props) => {
     return (
         <AppBar position="sticky" color={state.activePage !== "about" ? "primary" : "secondary"}>
             <Toolbar>
-                <Grid
-                    container
-                    alignItems="center"
-                >
+                <Grid container>
                     <Grid item xs={6}>
                         <Button
                             onClick={props.setLanguage}
                             startIcon={<TranslateIcon />}
                         >
-                            <span>{props.texts.language}</span>
+                            {props.texts.language}
                         </Button>
                     </Grid>
-                    <Grid item xs={6} container justify="flex-end">
-                        {
-                            largeDevice ?
-                                navList() :
-                                <React.Fragment>
-                                    <IconButton
-                                        aria-label="menu"
-                                        aria-controls="nav-menu"
-                                        aria-haspopup="true"
-                                        onClick={toggleDrawer(true)}
-                                    >
-                                        <MenuIcon color="secondary" fontSize="large" />
-                                    </IconButton>
-                                    <SwipeableDrawer
-                                        anchor={'right'}
-                                        open={state.drawerOpen}
-                                        onClose={toggleDrawer(false)}
-                                        onOpen={toggleDrawer(true)}
-                                    >
-                                        {navList()}
-                                    </SwipeableDrawer>
-                                </React.Fragment>
-                        }
+                    <Grid
+                        item
+                        xs={6}
+                        container
+                        justify="flex-end"
+                        direction={largeDevice? 'row' : 'row-reverse'}
+                    >
+                        <Grid item>
+                            {
+                                largeDevice ?
+                                    navList() :
+                                    <React.Fragment>
+                                        <IconButton
+                                            aria-label="menu"
+                                            aria-controls="nav-menu"
+                                            aria-haspopup="true"
+                                            onClick={toggleDrawer(true)}
+                                        >
+                                            <MenuIcon color="secondary" fontSize="large" />
+                                        </IconButton>
+                                        <SwipeableDrawer
+                                            anchor={'right'}
+                                            open={state.drawerOpen}
+                                            onClose={toggleDrawer(false)}
+                                            onOpen={toggleDrawer(true)}
+                                        >
+                                            {navList()}
+                                        </SwipeableDrawer>
+
+                                    </React.Fragment>
+
+                            }
+                        </Grid>
+                        <Grid item>
+                            <IconButton color="secondary">
+                                <EmailIcon />
+                            </IconButton>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Toolbar>
