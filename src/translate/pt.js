@@ -6,7 +6,8 @@ export default {
         },
         home: {
             title: "Desenvolvedor Full-Stack",
-            subTitle: "Codifico interfaces leves, e funcionalidades performáticas e escalavéis no server-side"
+            subTitle: "Codifico interfaces leves, e funcionalidades performáticas e escalavéis no server-side",
+            aboutButton: 'Saiba mais'
         },
         about: {
             title: "Olá, me chamo André. Prazer em conhece-lo.",

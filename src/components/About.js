@@ -1,10 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography, Grid, IconButton, List, ListItem, ListItemText } from '@material-ui/core';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PhonelinkIcon from '@material-ui/icons/Phonelink';
-import { Link } from 'react-scroll';
-import theme from '../styles/Theme';
+import { Link as LinkScroll } from 'react-scroll';
+import theme from '../Theme';
 
 const styles = makeStyles({
     aboutSection: {
@@ -27,6 +28,7 @@ const About = (props) => {
     const classes = styles();
     const darkPrimaryColor = theme.palette.primary.dark;
     const texts = { ...props.texts };
+    const currentPage = props.currentPage;
 
     const toolList = tools => {
         if (tools.title && tools.list) {
@@ -52,16 +54,24 @@ const About = (props) => {
             <Container maxWidth="lg">
                 <Grid container className={classes.center} spacing={4}>
                     <Grid item xs={12} >
-                        <Link
-                            to="about"
+                        <LinkScroll
+                            to={currentPage === "home" ? "about" : "home"}
                             spy={true}
                             smooth={true}
+                            offset={0}
                             duration={500}
+                            onSetActive={() => props.setCurrentPage(currentPage === "home" ? "about" : "home")}
                         >
-                            <IconButton aria-label="Expand More">
-                                <ExpandMoreIcon fontSize="large" />
-                            </IconButton>
-                        </Link>
+                            {
+                                currentPage === "home" ?
+                                    <IconButton aria-label="Expand More" color="primary">
+                                        <ExpandMoreIcon fontSize="large" />
+                                    </IconButton>
+                                    : <IconButton aria-label="Expand Less" color="primary">
+                                        <ExpandLessIcon fontSize="large" />
+                                    </IconButton>
+                            }
+                        </LinkScroll>
                     </Grid>
                     <Grid container item xs={12} justify="center" >
                         <Typography variant="h3" color="textSecondary" >{texts.title}</Typography>

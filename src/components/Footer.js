@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Container, IconButton, Link, Snackbar, Slide, Button, Chip, Tooltip } from "@material-ui/core";
+import { Grid, Container, IconButton, Link, Snackbar, Chip, Tooltip, Typography } from "@material-ui/core";
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -8,7 +8,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import { Link as LinkScroll } from 'react-scroll';
 import { makeStyles } from '@material-ui/core/styles';
-import theme from '../styles/Theme';
+import theme from '../Theme';
 
 const styles = makeStyles({
     background: {
@@ -52,7 +52,7 @@ const Footer = (props) => {
                             offset={0}
                             duration={500}
                         >
-                            <IconButton aria-label="Expand Less">
+                            <IconButton aria-label="Expand Less" color="primary">
                                 <ExpandLessIcon fontSize="large" />
                             </IconButton>
                         </LinkScroll>
@@ -108,7 +108,8 @@ const Footer = (props) => {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <span>ANDRE CARAPIA <span style={{ color: theme.palette.primary.main }}>@2020</span></span>
+                        <Typography variant="overline" component="span" color="textSecondary">ANDRE CARAPIA</Typography>
+                        <Typography variant="overline" component="span" color="primary"> @2020</Typography>
                     </Grid>
                 </Grid>
             </Container>

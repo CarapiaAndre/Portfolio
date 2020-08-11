@@ -18,7 +18,8 @@ class App extends Component {
       },
       modal: {
         open: false
-      }
+      },
+      currentPage: 'home'
     }
   }
   setLanguage = () => {
@@ -26,6 +27,9 @@ class App extends Component {
     this.setState({
       language: newLanguage
     })
+  }
+  setCurrentPage = (page) => {
+    this.setState({ currentPage: page })
   }
   showModal = (show) => {
     this.setState({
@@ -38,12 +42,32 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar texts={this.state.language.dictionary.navBar} setLanguage={this.setLanguage}/>
-        <Home texts={this.state.language.dictionary.home}/>
-        <About texts={this.state.language.dictionary.about}/>
-        <Contact texts={this.state.language.dictionary.contact} showModal={this.showModal}/>
-        <ContactModal texts={this.state.language.dictionary.contact.form} open={this.state.modal.open} showModal={this.showModal} />
+          <Navbar
+            texts={this.state.language.dictionary.navBar}
+            showModal={this.showModal}
+            setLanguage={this.setLanguage}
+            currentPage={this.state.currentPage}
+            setCurrentPage={this.setCurrentPage}
+          />
+        
+        <Home
+          texts={this.state.language.dictionary.home}
+        />
+        <About
+          texts={this.state.language.dictionary.about}
+          currentPage={this.state.currentPage}
+          setCurrentPage={this.setCurrentPage}
+        />
+        <Contact
+          texts={this.state.language.dictionary.contact}
+          showModal={this.showModal}
+        />
         <Footer />
+        <ContactModal
+          texts={this.state.language.dictionary.contact.form}
+          open={this.state.modal.open}
+          showModal={this.showModal}
+        />
       </React.Fragment>
     );
   }

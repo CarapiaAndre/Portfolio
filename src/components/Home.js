@@ -1,24 +1,26 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Button, Hidden } from '@material-ui/core';
+import { Link as ScrollLink } from 'react-scroll';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import ParticlesBackground from './theme/ParticlesBackground';
 import HomeImage from './theme/HomeImage';
+import ParticlesBackground from './theme/ParticlesBackground';
 
-const styles = makeStyles({
+const useStyles = makeStyles({
     homeSection: {
-        height: 'calc(100vh - 130px)',
+        height: '94vh',
     },
     aboveBackground: {
         width: '100%',
         position: 'absolute',
         zIndex: 11,
-        textAlign: 'center'
-    }
+        textAlign: 'center',
+    },
 });
 
+
 const Home = (props) => {
-    const classes = styles();
+    const classes = useStyles();
     const texts = { ...props.texts };
 
     return (
@@ -28,10 +30,23 @@ const Home = (props) => {
                     alignItems="center"
                     className={classes.homeSection}
                 >
-                    <Grid item xs={12} >
+                    <Grid item xs={12}  >
                         <HomeImage />
                         <Typography variant="h1">{texts.title}</Typography>
-                        <Typography variant="h6" component="h2">{texts.subTitle}</Typography>
+                        <Typography variant="h5" component="h2">{texts.subTitle}</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <ScrollLink
+                            to="about"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                        >
+                            <Hidden mdUp>
+                                <Button variant="contained" color="primary">{texts.aboutButton}</Button>
+                            </Hidden>
+                        </ScrollLink>
                     </Grid>
                 </Grid>
             </div>

@@ -6,7 +6,8 @@ export default {
         },
         home: {
             title : "Full-Stack Developer",
-            subTitle: "I  code beautifully simple interfaces, and performatic and scalable features on the server-side"
+            subTitle: "I  code beautifully simple interfaces, and performatic and scalable features on the server-side",
+            aboutButton: 'About Me'
         },
         about: {
             title: "Hi, I'm Andre. Nice to meet you.",
