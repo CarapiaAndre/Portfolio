@@ -77,9 +77,17 @@ export default {
             form: {
                 title: 'Thanks for the interest. How can I help you today?',
                 name: 'Name',
+                nameHelper: 'Must be at least 3 characters.',
                 email: 'Email',
+                emailHelper: 'Enter a valid email.',
                 message: 'Message',
-                submit: 'Send'
+                messageHelper: 'Tell me a little more. Your message must be at least 10 characters.',
+                submit: 'Send',
+                success: 'Success',
+                successMessage: 'As soon as possible I will return the contact.',
+                error: 'Retry',
+                errorMessage: 'Something went wrong. Please contact me via email: carapia.andre@gmail.com',
+                thanksMessage: 'Thank you for contact me!'
             }
         }
     }

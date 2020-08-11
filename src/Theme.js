@@ -1,5 +1,4 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import { montserrat, redRose } from './assets/fonts/Fonts' ;
 
 const primaryHex = "#1de8b5";
 const secondaryHex = "#515151";
@@ -12,13 +11,16 @@ const colorTheme = createMuiTheme({
     secondary: {
       main: secondaryHex,
     },
-    text: {
-      secondary: '#fff'
-    }
   },
 });
 
 let theme = createMuiTheme(colorTheme,{
+  palette: {
+    text: {
+      primary: colorTheme.palette.secondary.dark,
+      secondary: '#fff',
+    },
+  },
   typography: {
     body1: {
       fontFamily: 'Montserrat'
@@ -51,7 +53,7 @@ let theme = createMuiTheme(colorTheme,{
         borderRadius: '8px'
       },
       containedSecondary: {
-        color: primaryHex,
+        color: colorTheme.palette.primary.main,
         '&:hover': {
           color: colorTheme.palette.primary.light
         }
@@ -61,5 +63,12 @@ let theme = createMuiTheme(colorTheme,{
 })
 
 theme = responsiveFontSizes(theme);
+
+theme.typography.h1 = {
+  ...theme.typography.h1,
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '2.5rem'
+  }
+}
 
 export default theme;

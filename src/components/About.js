@@ -37,7 +37,7 @@ const About = (props) => {
                     <Typography variant="h5" style={{ color: darkPrimaryColor }} >{tools.title}</Typography>
                     <List aria-label={tools.title}>
                         {tools.list.map((tool) => (
-                            <ListItem key={tool}>
+                            <ListItem key={tool} className={classes.center}>
                                 <ListItemText>
                                     <Typography variant="body1">{tool}</Typography>
                                 </ListItemText>
@@ -81,19 +81,18 @@ const About = (props) => {
                     </Grid>
                     <Grid container
                         item xs={12}
-                        spacing={4}
                         justify="space-evenly"
                         className={classes.skillsContainer}
                     >
                         {texts.knowledge.map((knowledge, i) => (
-                            <Grid item xs={12} lg={3} key={i}>
+                            <Grid item xs={12} lg={3} key={i} className={classes.center}>
                                 <PhonelinkIcon fontSize="large" style={{ color: darkPrimaryColor }} />
                                 <Typography variant="h4">{knowledge.title}</Typography>
                                 <Typography variant="body1">{knowledge.description}</Typography>
                                 <Typography variant="h5" style={{ color: darkPrimaryColor }} >{knowledge.listTitle}</Typography>
                                 <List aria-label={knowledge.listTitle}>
                                     {knowledge.skillList.map((skill) => (
-                                        <ListItem key={skill}>
+                                        <ListItem key={skill} className={classes.center}>
                                             <ListItemText>
                                                 <Typography variant="body1">{skill}</Typography>
                                             </ListItemText>

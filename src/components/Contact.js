@@ -10,7 +10,14 @@ const syles = makeStyles({
     contactSection: {
         backgroundColor: theme.palette.secondary.main,
         textAlign: 'center',
-        minHeight: '800px'
+        minHeight: '500px',
+        [theme.breakpoints.between('sm','md')]: {
+            minHeight: '350px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            minHeight: '250px',
+        },
+        
     },
     extendedIcon: {
         marginRight: theme.spacing(1)

@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import HomeImage from './theme/HomeImage';
 import ParticlesBackground from './theme/ParticlesBackground';
+import theme from '../Theme';
 
 const useStyles = makeStyles({
     homeSection: {
@@ -16,6 +17,11 @@ const useStyles = makeStyles({
         zIndex: 11,
         textAlign: 'center',
     },
+    mobileMarginTop: {
+        [theme.breakpoints.down('md')]: {
+            marginTop: '25px',
+        },
+    }
 });
 
 
@@ -30,24 +36,24 @@ const Home = (props) => {
                     alignItems="center"
                     className={classes.homeSection}
                 >
-                    <Grid item xs={12}  >
+                    <Grid item xs={12} className={classes.mobileMarginTop} >
                         <HomeImage />
                         <Typography variant="h1">{texts.title}</Typography>
                         <Typography variant="h5" component="h2">{texts.subTitle}</Typography>
                     </Grid>
-                    <Grid item xs={12}>
-                        <ScrollLink
-                            to="about"
-                            spy={true}
-                            smooth={true}
-                            offset={-70}
-                            duration={500}
-                        >
-                            <Hidden mdUp>
+                    <Hidden mdUp>
+                        <Grid item xs={12}>
+                            <ScrollLink
+                                to="about"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={500}
+                            >
                                 <Button variant="contained" color="primary">{texts.aboutButton}</Button>
-                            </Hidden>
-                        </ScrollLink>
-                    </Grid>
+                            </ScrollLink>
+                        </Grid>
+                    </Hidden>
                 </Grid>
             </div>
             <ParticlesBackground />

@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
         width: 'fit-content'
     },
     '@global': {
+        '.MuiFormLabel-root': {
+            color: theme.palette.secondary.main
+        },
         '.MuiFormLabel-root.Mui-focused': {
             color: theme.palette.secondary.main
         },
@@ -45,17 +48,19 @@ const ContactModal = (props) => {
     const [status, setStatus] = React.useState(false);
     const [feedback, setFeedback] = React.useState(false);
 
+    const texts = { ...props.texts };
+
     const submitButton = () => {
         let icon = <SendIcon />
-        let buttonText = props.texts.submit
+        let buttonText = texts.submit
 
         if (status === 'success') {
             icon = <CheckIcon />
-            buttonText = "Success"
+            buttonText = texts.success
         }
         if (status === 'error') {
             icon = <RefreshIcon />
-            buttonText = "Retry"
+            buttonText = texts.error
         }
 
         return (
@@ -139,7 +144,7 @@ const ContactModal = (props) => {
                                     </IconButton>
                                 </Grid>
                                 <Grid item xs={12} style={{ textAlign: 'center' }}>
-                                    <Typography variant="h3">Hello</Typography>
+                                    <Typography variant="h3">{texts.title}</Typography>
                                 </Grid>
                                 <Grid item lg={6} xs={12}>
                                     <TextField
@@ -147,10 +152,10 @@ const ContactModal = (props) => {
                                         onChange={(e) => validate(e)}
                                         required
                                         id="name"
-                                        label="Name"
+                                        label={texts.name}
                                         variant="outlined"
                                         className={classes.input}
-                                        helperText={nameInvalid ? "Must be at least 3 characters." : null}
+                                        helperText={nameInvalid ? texts.nameHelper : null}
                                     />
                                 </Grid>
                                 <Grid item lg={6} xs={12}>
@@ -159,24 +164,24 @@ const ContactModal = (props) => {
                                         onChange={(e) => validate(e)}
                                         required
                                         id="email"
-                                        label="Email"
+                                        label={texts.email}
                                         variant="outlined"
                                         className={classes.input}
-                                        helperText={emailInvalid ? "Enter a valid email." : null}
+                                        helperText={emailInvalid ? texts.emailHelper : null}
                                     />
                                 </Grid>
-                                <Grid item xs={12} container spacing={2} alignItems="center">
+                                <Grid item xs={12} container alignItems="center">
                                     <Grid item lg={10} xs={12}>
                                         <TextField
                                             onChange={(e) => validate(e)}
                                             id="message"
-                                            label="Message"
+                                            label={texts.message}
                                             multiline
                                             rows={4}
                                             variant="outlined"
                                             className={classes.input}
                                             error={messageInvalid}
-                                            helperText={messageInvalid ? "Tell me a little more. Your message must be at least 10 characters." : null}
+                                            helperText={messageInvalid ? texts.messageHelper : null}
                                         />
                                     </Grid>
                                     <Grid item xs={2}>
@@ -192,10 +197,10 @@ const ContactModal = (props) => {
                             aria-labelledby="alert-dialog-title"
                             aria-describedby="alert-dialog-description"
                         >
-                            <DialogTitle id="alert-dialog-title">{status === "success" ? "Thank you for contact me!" : "Oops!"}</DialogTitle>
+                            <DialogTitle id="alert-dialog-title">{status === "success" ? texts.thanksMessage : "Oops!"}</DialogTitle>
                             <DialogContent>
                                 <DialogContentText id="alert-dialog-description">
-                                    {status === "success" ? "As soon as possible I will return the contact." : "Something went wrong. Please contact me via email: carapia.andre@gmail.com"}
+                                    {status === "success" ? texts.successMessage : texts.errorMessage}
                                 </DialogContentText>
                             </DialogContent>
                             <DialogActions>

@@ -101,7 +101,6 @@ const Navbar = (props) => {
                     </Button>
                     <Hidden smDown>
                         <div className={classes.navContainer}>
-
                             {state.pages.map((page, i) => (
                                 <Button key={page} className={classes.navLink}>{linkItem(page, i)}</Button>
                             ))}
